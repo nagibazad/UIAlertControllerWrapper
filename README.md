@@ -6,7 +6,7 @@ This wrapper provides a way of converting UIAlertView to UIAlertController easil
 
 * Objective C:
 
-```Swift
+```Objective-C
 
     CIAlertView *alertView = [[CIAlertView alloc] initWithTitle:@"Dummy title" message:@"This is a dummy message"     delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Button0",@"Button1",@"Button2",@"Button3",@"Button4", nil];
     alertView.tag = 12345;
@@ -16,7 +16,7 @@ This wrapper provides a way of converting UIAlertView to UIAlertController easil
 
 Implement your delegate as it was before with some simple changes
 
-```Swift
+```Objective C
 - (void)alertViewCancel:(CIAlertView *)alertView
 {
     NSLog(@"alertViewCancel");
@@ -54,6 +54,55 @@ Implement your delegate as it was before with some simple changes
 - (void)willPresentAlertView:(CIAlertView *)alertView
 {
     NSLog(@"willPresentAlertView");
+}
+
+```
+
+* Swift:
+
+```Swift
+        let alertView = CIAlertView(title: "Dummy title", message: "This is a test message", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Button0","Button1","Button2","Button3","Button4")
+        alertView.tag = 12345;
+        alertView.alertViewStyle = .loginAndPasswordInput
+        alertView.show()
+```
+
+Implement your delegate as it was before with some simple changes
+
+```Swift
+
+extension SwiftAlertViewController: CIAlertViewDelegate {
+    
+    func alertView(_ alertView: CIAlertView, clickedButtonAt buttonIndex: Int) {
+        print("clickedButtonAt \(buttonIndex)")
+    }
+    
+    func alertView(_ alertView: CIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
+        print("willDismissWithButtonIndex \(buttonIndex)")
+    }
+    
+    func alertViewShouldEnableFirstOtherButton(_ alertView: CIAlertView) -> Bool {
+        return true
+    }
+    func alertView(_ alertView: CIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+        print("didDismissWithButtonIndex \(buttonIndex)")
+        
+    }
+    
+    func alertViewCancel(_ alertView: CIAlertView) {
+        print("alertViewCancel")
+        
+    }
+    
+    func didPresent(_ alertView: CIAlertView) {
+        print("didPresent")
+        
+    }
+    
+    func willPresent(_ alertView: CIAlertView) {
+        print("willPresent")
+        
+    }
 }
 
 ```
