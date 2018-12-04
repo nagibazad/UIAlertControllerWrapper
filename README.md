@@ -4,6 +4,8 @@ This wrapper provides a way of converting UIAlertView to UIAlertController easil
 
 ### How To Use
 
+Add `UIAlertControllerWrapper` folder in your project
+
 * Objective C:
 
 ```Objective-C
