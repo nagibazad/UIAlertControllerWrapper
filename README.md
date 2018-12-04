@@ -106,3 +106,7 @@ extension SwiftAlertViewController: CIAlertViewDelegate {
 }
 
 ```
+
+## Easiest Steps
+
+Just Serach for `UIAlertView` in you project and replace with `CIAlertView`. Now all of your `UIAlertView` will get converted to `UIAlertController` without changing your implementation.
